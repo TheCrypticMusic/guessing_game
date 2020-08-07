@@ -5,9 +5,6 @@ num = rand.randint(1, 20)
 number_of_guesses = 0
 score = 0
 
-# TODO: FIX LOGIC TO MAKE NUMBERS REFRESH WHEN RESTART IS PRESSED
-
-        
 def restart_game():
     global number_of_guesses
     global score
@@ -26,6 +23,7 @@ def game(event=None):
     global number_of_guesses
     global score
     guess = int(user_entry.get())
+
     try:        
         if guess == num:
             num = rand.randint(1, 20)
@@ -44,13 +42,10 @@ def game(event=None):
             restart_button()
             label['text'] = 'Game Over'
             
-            
     except ValueError:
         label['text'] = 'ENTER A NUMBER'
 
-
-
-    
+   
 root = Tk()
 root.title('Guessing Game')
 root.geometry('400x200')    
