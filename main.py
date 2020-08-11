@@ -23,7 +23,7 @@ def game(event=None):
     global number_of_guesses
     global score
     guess = int(user_entry.get())
-
+    user_entry.delete(0, END)
     try:        
         if guess == num:
             num = rand.randint(1, 20)
@@ -45,7 +45,7 @@ def game(event=None):
     except ValueError:
         label['text'] = 'ENTER A NUMBER'
 
-   
+
 root = Tk()
 root.title('Guessing Game')
 root.geometry('400x200')    
@@ -58,8 +58,11 @@ label.pack(pady=10)
 
 
 user_entry = Entry(root)
+
 user_entry.bind('<Return>', game)
 user_entry.pack(side=TOP, pady=5, ipadx=30)
+
+
 
 guess_count = Label(root, text=f'Guesses:\n{number_of_guesses}')
 guess_count.pack(side=LEFT, padx=60)
